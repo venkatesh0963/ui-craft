@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy - UiCraft</title>
+<meta name="description" content="Discover thousands of free open-source UI components built with HTML, CSS, Tailwind CSS, React and Figma. Browse buttons, cards, loaders, forms, animations and more.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    /* Minimalist Light Theme with Earthy Tones */
+    --bg-color: #faf9f6;
+    --text-color: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e5e5e5;
+    --primary: #3b82f6; /* Modern Blue */
+    --primary-hover: #2563eb;
+    --secondary: #4ecdc4; /* Vibrant Teal */
+    --tertiary: #ffe66d; /* Vibrant Yellow */
+    --card-bg: #ffffff;
+    --nav-bg: rgba(250, 249, 246, 0.9);
+    
+    --border-radius: 8px;
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --box-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+[data-theme="dark"] {
+    /* Minimalist Dark Theme */
+    --bg-color: #121212;
+    --text-color: #f0f0f0;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --primary: #60a5fa; /* Light Blue for dark mode */
+    --primary-hover: #93c5fd;
+    --secondary: #38b2ac;
+    --tertiary: #f6e58d;
+    --card-bg: #1e1e1e;
+    --nav-bg: rgba(18, 18, 18, 0.9);
+    
+    --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --box-shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary);
+}
+
+/* Buttons */
+button, .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    padding: 10px 24px;
+    font-size: 15px;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-icon {
+    padding: 10px;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.btn-icon:hover {
+    color: var(--primary);
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.nav-links a:hover {
+    color: var(--text-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* DROPDOWNS */
+.dropdown-wrapper {
+    position: relative;
+}
+
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 1000;
+    min-width: 220px;
+    padding: 8px 0;
+}
+
+.dropdown-wrapper:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mega-menu {
+    width: 600px;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, 10px);
+    padding: 24px;
+}
+
+.dropdown-wrapper:hover .mega-menu {
+    transform: translate(-50%, 0);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    color: var(--text-color) !important;
+    font-weight: 400 !important;
+}
+
+.dropdown-menu a i {
+    color: var(--primary);
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--bg-color);
+    color: var(--primary) !important;
+}
+
+.mega-menu a {
+    padding: 12px;
+    border-radius: var(--border-radius);
+}
+
+/* SECTIONS */
+.section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 48px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    max-width: 800px;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background-color: rgba(194, 109, 92, 0.1);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 30px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SEARCH */
+.search-box {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.search-box input {
+    width: 100%;
+    max-width: 400px;
+    padding: 14px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: var(--transition);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(194, 109, 92, 0.1);
+}
+
+/* CARDS GRID */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.category-card {
+    background: var(--card-bg);
+    padding: 24px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.category-card:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: var(--box-shadow);
+    transform: translateY(-2px);
+}
+
+.uiux-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.design-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    position: relative;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    background-color: var(--border-color);
+}
+
+.design-card:hover {
+    box-shadow: var(--box-shadow-hover);
+    transform: translateY(-4px);
+}
+
+.design-card .header-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.design-icon {
+    font-size: 40px;
+    margin-bottom: 24px;
+}
+
+.design-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.design-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.tags-row span {
+    font-size: 12px;
+    padding: 4px 10px;
+    background: var(--bg-color);
+    color: var(--text-muted);
+    border-radius: 20px;
+}
+
+.actions {
+    margin-top: auto;
+}
+
+.actions .btn {
+    width: 100%;
+}
+
+/* FAQ */
+.faq {
+    max-width: 800px;
+}
+
+.faq-item {
+    margin-bottom: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.faq-question:hover {
+    color: var(--primary);
+}
+
+.faq-answer {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    color: var(--text-muted);
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 24px 24px;
+    max-height: 200px; /* arbitrary max height for animation */
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+/* FOOTER */
+footer {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 80px 5% 40px;
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+footer h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+footer a {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.footer-brand h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 14px;
+    max-width: 300px;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.footer-bottom-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-bottom-links a {
+    margin: 0;
+    display: inline;
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px 24px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-hover);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 90%;
+    width: 600px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cookie-banner.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+.cookie-text p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.cookie-text a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.cookie-actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* SCROLL TO TOP */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--transition);
+}
+
+.scroll-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+/* MOBILE RESPONSIVENESS */
+.mobile-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 1000;
+}
+
+@media(max-width: 900px) {
+    nav {
+        padding: 15px 5%;
+    }
+    
+    .mobile-toggle {
+        display: block;
+    }
+    
+    .nav-links, .nav-actions {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: var(--bg-color);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px 5%;
+        gap: 24px;
+        transition: 0.3s ease;
+        overflow-y: auto;
+    }
+    
+    nav.active .nav-links {
+        left: 0;
+    }
+    
+    nav.active .nav-actions {
+        left: 0;
+        top: auto;
+        bottom: 0;
+        height: auto;
+        padding: 24px 5%;
+        border-top: 1px solid var(--border-color);
+        background: var(--card-bg);
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .dropdown-menu, .mega-menu {
+        position: static;
+        width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        margin-top: 10px;
+        display: none;
+        padding: 0 0 0 16px;
+        border-left: 1px solid var(--border-color);
+    }
+    
+    .dropdown-wrapper.active .dropdown-menu,
+    .dropdown-wrapper.active .mega-menu {
+        display: block;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .uiux-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .search-box button {
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .cookie-banner {
+        flex-direction: column;
+        align-items: stretch;
+        width: calc(100% - 40px);
+    }
+    
+    .cookie-actions {
+        justify-content: flex-end;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav id="navbar">
+        <a href="#" class="logo">UiCraft.</a>
+        
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav-links">
+            <div class="dropdown-wrapper">
+                <div class="dropdown-trigger nav-link">
+                    Elements <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                </div>
+                <div class="dropdown-menu mega-menu">
+                    <div class="menu-grid">
+                        <a href="ui-buttons.html"><i class="fa-regular fa-square"></i> UI Buttons</a>
+                        <a href="forms.html"><i class="fa-regular fa-file-lines"></i> Modern Forms</a>
+                        <a href="navigation.html"><i class="fa-solid fa-bars"></i> Navigation</a>
+                        <a href="modals.html"><i class="fa-solid fa-window-restore"></i> Modals & Popups</a>
+                        <a href="cards.html"><i class="fa-regular fa-credit-card"></i> Component Cards</a>
+                        <a href="heroes.html"><i class="fa-solid fa-window-maximize"></i> Hero Sections</a>
+                        <a href="dashboards.html"><i class="fa-solid fa-chart-line"></i> Dashboard UI</a>
+                        <a href="pricing.html"><i class="fa-solid fa-tag"></i> Pricing Tables</a>
+                        <a href="loaders.html"><i class="fa-solid fa-spinner"></i> Loading Animations</a>
+                        <a href="tables.html"><i class="fa-solid fa-table"></i> Data Tables</a>
+                        <a href="ai-interfaces.html"><i class="fa-solid fa-robot"></i> AI Interfaces</a>
+                        <a href="auth.html"><i class="fa-solid fa-lock"></i> Login & Signup</a>
+                        <a href="alerts.html"><i class="fa-solid fa-bell"></i> Toast Notifications</a>
+                        <a href="accordions.html"><i class="fa-solid fa-list"></i> FAQ Accordions</a>
+                        <a href="tabs.html"><i class="fa-solid fa-folder"></i> Content Tabs</a>
+                    </div>
+                </div>
+            </div>
+            <a href="web-designs.html" class="nav-link">Designs</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+        </div>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <div class="dropdown-wrapper">
+                <button class="btn btn-secondary dropdown-trigger">
+                    Community <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+            <button class="btn btn-primary">Create</button>
+        </div>
+    </nav>
+</header>
+
+<main class="section" style="max-width: 800px; margin: 0 auto; min-height: 50vh;">
+    <h1 style="font-size: 36px; margin-bottom: 24px; padding-top: 40px;">Cookie Policy</h1>
+    <div style="font-size: 18px; line-height: 1.8; color: var(--text-muted);">
+        <p>We use essential cookies to keep our platform secure and functional. We do not use tracking cookies for targeted advertising.</p>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>UiCraft.</h3>
+            <p>Crafting beautiful, minimalist open-source UI components for modern web developers.</p>
+        </div>
+        <div>
+            <h4>Resources</h4>
+            <a href="components.html">Components</a>
+            <a href="#">Templates</a>
+            <a href="#">Projects</a>
+            <a href="#">Documentation</a>
+        </div>
+        <div>
+            <h4>Company</h4>
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div>
+            <h4>Legal</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="cookies.html">Cookie Policy</a>
+            <a href="#">License</a>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2026 UiCraft. All rights reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Cookie Consent Banner Removed -->
+
+<!-- Scroll to Top -->
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const root = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        root.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+        }
+
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navbar = document.getElementById('navbar');
+        const mobileIcon = mobileToggle.querySelector('i');
+
+        mobileToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            if (navbar.classList.contains('active')) {
+                mobileIcon.className = 'fa-solid fa-xmark';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileIcon.className = 'fa-solid fa-bars';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Mobile Dropdown Interactions
+        const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+        dropdownTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                if (window.innerWidth <= 900) {
+                    e.preventDefault();
+                    const wrapper = trigger.closest('.dropdown-wrapper');
+                    wrapper.classList.toggle('active');
+                }
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Scroll to Top
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Cookie logic removed
+    });
+</script>
+
+</body>
+</html>
