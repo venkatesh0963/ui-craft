@@ -26,7 +26,7 @@
 
 ---
 
-## ✨ Features
+## ✨ Features.
 
 - **🚀 Ready to Use:** Drop-in HTML and CSS for instant beautiful UI.
 - **📱 Fully Responsive:** Grid and Flexbox layouts that adapt perfectly to any device size.
