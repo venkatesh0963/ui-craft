@@ -2,7 +2,7 @@
   <img src="https://capsule-render.vercel.app/api?type=waving&color=3b82f6&height=250&section=header&text=UiCraft&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=The%20Ultimate%20UI%20Component%20Library&descAlignY=55&descAlign=50" />
 </div>
 
-<h1 align="center">🎨 UiCraft</h1>
+<h1 align="center">🎨 UiCraft.</h1>
 
 <p align="center">
   <b>A modern, responsive, and versatile collection of premium UI components built with HTML & CSS.</b>
